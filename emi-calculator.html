@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMI Calculator — Finzon Marketing</title>
+  <meta name="description" content="Free EMI calculator for home, personal, mortgage, business, car and education loans with a year-wise repayment schedule.">
+  <meta name="theme-color" content="#0a1230">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EMI Calculator — Finzon Marketing">
+  <meta property="og:description" content="Free EMI calculator for home, personal, mortgage, business, car and education loans with a year-wise repayment schedule.">
+  <meta property="og:image" content="assets/img/logo.svg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<main>
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=70')"></div>
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>EMI Calculator</span></nav>
+      <h1>EMI Calculator — plan your loan with <span class="grad-text gold-text">confidence</span></h1>
+      <p class="lead">Calculate the monthly EMI, total interest and year-wise repayment schedule for any loan in seconds.</p>
+      
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <div class="emi reveal" data-emi data-tabs data-schedule data-loan="home-loan"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">The formula</span>
+        <h2>How is EMI calculated?</h2>
+        <p>EMI (Equated Monthly Instalment) is the fixed amount you pay every month until your loan is repaid. It is calculated using:</p>
+        <div class="info-card" style="margin:24px 0;text-align:center;font-size:1.3rem;font-weight:800;color:var(--ink)">
+          EMI = P × r × (1 + r)<sup>n</sup> ÷ [(1 + r)<sup>n</sup> − 1]
+        </div>
+        <ul class="check-list" style="margin-top:0">
+          <li><div><strong>P — Principal</strong><span>The loan amount you borrow.</span></div></li>
+          <li><div><strong>r — Monthly interest rate</strong><span>Annual rate ÷ 12 ÷ 100. For 9% p.a., r = 0.0075.</span></div></li>
+          <li><div><strong>n — Number of instalments</strong><span>Tenure in months. For 20 years, n = 240.</span></div></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Smart tips</span>
+        <h2>Lower your EMI burden</h2>
+        <div class="feature-grid" style="grid-template-columns:1fr;gap:16px;margin-top:24px">
+          <div class="feature"><span class="icon-tile" data-icon="trending"></span><h3>Improve your credit score</h3><p>A CIBIL score above 750 can unlock noticeably lower interest rates.</p></div>
+          <div class="feature"><span class="icon-tile" data-icon="wallet"></span><h3>Make a larger down payment</h3><p>Borrowing less reduces both your EMI and total interest paid.</p></div>
+          <div class="feature"><span class="icon-tile" data-icon="calculator"></span><h3>Prepay when you can</h3><p>Part-prepayments early in the tenure save the most interest.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta reveal">
+        <div>
+          <h2>Found an EMI that works for you?</h2>
+          <p>Let a Finzon expert find the lender that offers it — free of charge.</p>
+        </div>
+        <div class="cta-actions">
+          <button class="btn btn-dark btn-lg" type="button" data-apply>Apply Now <span data-icon="arrow-right"></span></button>
+          <a class="btn btn-light btn-lg" href="contact.html">Talk to an expert</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

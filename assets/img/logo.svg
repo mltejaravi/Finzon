@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Finzon Marketing — Loans, Trust, Growth">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".38" r=".75">
+      <stop offset="0" stop-color="#17275f"/><stop offset="1" stop-color="#070d24"/>
+    </radialGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff3c4"/><stop offset=".35" stop-color="#f2c14e"/>
+      <stop offset=".7" stop-color="#b8841e"/><stop offset="1" stop-color="#f7dc8a"/>
+    </linearGradient>
+    <linearGradient id="gv" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#f2c14e"/><stop offset="1" stop-color="#c38f28"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" x2="1">
+      <stop offset="0" stop-color="#f2c14e" stop-opacity="0"/><stop offset="1" stop-color="#f2c14e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <!-- Emblem -->
+  <g transform="translate(260 90) scale(2.8)">
+    <path d="M84.4 25.9A42 42 0 1 1 57.3 8.6" fill="none" stroke="url(#g)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M84.4 25.9A42 42 0 1 1 57.3 8.6" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round" stroke-dasharray=".01 4.4"/>
+    <path d="M33 78V35q0-13 13-13h38l-9 10H45v12h25l-8 9H45v25z" fill="url(#g)"/>
+    <path d="M50 58h20M50 64.5h20M54 58c9 0 10 13 0 13h-3l15 11" fill="none" stroke="url(#g)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="400" y="530" text-anchor="middle" fill="url(#gv)" font-family="'Plus Jakarta Sans','Montserrat','Arial Black',Arial,sans-serif" font-weight="800" font-size="118" letter-spacing="10">FINZON</text>
+  <rect x="120" y="583" width="120" height="3" fill="url(#rule)"/>
+  <rect x="560" y="583" width="120" height="3" fill="url(#rule)" transform="rotate(180 620 584.5)"/>
+  <text x="400" y="596" text-anchor="middle" fill="#f2c14e" font-family="'Plus Jakarta Sans','Montserrat',Arial,sans-serif" font-weight="700" font-size="38" letter-spacing="17">MARKETING</text>
+  <text x="400" y="672" text-anchor="middle" fill="#e8cf8f" font-family="'Plus Jakarta Sans','Montserrat',Arial,sans-serif" font-weight="600" font-size="24" letter-spacing="9">LOANS  •  TRUST  •  GROWTH</text>
+</svg>
