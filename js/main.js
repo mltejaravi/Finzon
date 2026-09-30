@@ -7,8 +7,8 @@
 const CONFIG = {
   brand: "Finzon Marketing",
   email: "finzonmarketing@gmail.com",
-  phone: "+91 90000 00000",          // TODO: replace with your real number
-  whatsapp: "919000000000",           // digits only, used for wa.me link
+  phone: "+91 90300 06779",
+  whatsapp: "919030006779",           // digits only, used for wa.me link
   address: "Hyderabad, Telangana, India", // TODO: replace with your office address
   hours: "Mon – Sat, 9:30 AM – 7:00 PM",
   currency: "INR",
