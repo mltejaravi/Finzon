@@ -25,6 +25,16 @@ Static marketing site (HTML/CSS/JS, no build step) for home, personal, mortgage,
 
 GitHub Pages can't process forms. Create a free form at a service like Formspree, then paste its URL into `CONFIG.formEndpoint`. Until then, forms validate and show a success message but send nothing.
 
+## Before each deploy
+
+After editing `css/style.css` or `js/main.js`, run:
+
+```bash
+./bump-version.sh
+```
+
+It stamps a new version on the CSS/JS links in every page, so visitors' browsers load the updated files immediately instead of a cached copy.
+
 ## Run locally
 
 ```bash
