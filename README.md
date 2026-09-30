@@ -17,7 +17,9 @@ Static marketing site (HTML/CSS/JS, no build step) for home, personal, mortgage,
 - **Contact details, socials, form endpoint** — `CONFIG` at the top of `js/main.js`.
 - **Nav / footer / apply modal** — rendered once by `js/main.js`, so changes apply to every page.
 - **Loan products in nav, footer and EMI calculator** — `LOANS` in `js/main.js`.
-- **Colours & fonts** — CSS variables at the top of `css/style.css`.
+- **Colours & fonts** — CSS variables at the top of `css/style.css`. Dark-theme values sit right below them, under `:root[data-theme="dark"]`, and again in the `prefers-color-scheme` block.
+- **Light / Dark / System theme** — the sun/moon button in the header (and "Appearance" in the mobile menu). The choice is saved in the visitor's browser; "System" follows their device setting.
+- **Logo & favicon** — `assets/img/logo.webp` is the original logo; `favicon.ico` and `assets/img/icon-*.png` are the round emblem cut from it.
 
 ### Receiving form submissions
 

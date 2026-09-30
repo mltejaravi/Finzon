@@ -6,7 +6,6 @@
 
 const CONFIG = {
   brand: "Finzon Marketing",
-  tagline: ["Loans", "Trust", "Growth"],
   email: "finzonmarketing@gmail.com",
   phone: "+91 90000 00000",          // TODO: replace with your real number
   whatsapp: "919000000000",           // digits only, used for wa.me link
@@ -91,6 +90,9 @@ const ICONS = {
   headset: '<path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 16a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2zM3 16a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2zM18 18v1a3 3 0 0 1-3 3h-3"/>',
   star: '<path fill="currentColor" stroke="none" d="m12 2 3.1 6.3 6.9 1-5 4.8 1.2 6.9-6.2-3.2L5.8 21 7 14.1 2 9.3l6.9-1z"/>',
   x: '<path d="M18 6 6 18M6 6l12 12"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
+  monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
   calculator: '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h4"/>',
   trending: '<path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/>',
   wallet: '<path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v3M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M21 12h-4a2 2 0 0 0 0 4h4z"/>',
@@ -110,27 +112,10 @@ const ICONS = {
 const icon = (name, cls = "") =>
   `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ""}</svg>`;
 
-/* ---------- Brand emblem (vector recreation of the Finzon logo) ---------- */
-const EMBLEM_DEFS = `
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="fz-gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#fff3c4"/><stop offset=".35" stop-color="#f2c14e"/>
-      <stop offset=".7" stop-color="#b8841e"/><stop offset="1" stop-color="#f7dc8a"/>
-    </linearGradient>
-    <symbol id="fz-emblem" viewBox="0 0 100 100">
-      <path d="M84.4 25.9A42 42 0 1 1 57.3 8.6" fill="none" stroke="url(#fz-gold)" stroke-width="8" stroke-linecap="round"/>
-      <path d="M84.4 25.9A42 42 0 1 1 57.3 8.6" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round" stroke-dasharray=".01 4.4"/>
-      <path d="M33 78V35q0-13 13-13h38l-9 10H45v12h25l-8 9H45v25z" fill="url(#fz-gold)"/>
-      <path d="M50 58h20M50 64.5h20M54 58c9 0 10 13 0 13h-3l15 11" fill="none" stroke="url(#fz-gold)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-  </defs>
-</svg>`;
-
-const brandLockup = () => `
+/* ---------- Brand logo (original image — do not alter) ---------- */
+const brandLogo = (size) => `
   <a class="brand" href="index.html" aria-label="${CONFIG.brand} — home">
-    <svg class="emblem" aria-hidden="true"><use href="#fz-emblem"/></svg>
-    <span class="brand-text"><b>FINZON</b><small>MARKETING</small></span>
+    <img src="assets/img/${size > 100 ? "logo-480" : "logo-240"}.webp" alt="${CONFIG.brand}" width="${size}" height="${size}">
   </a>`;
 
 /* ---------- Formatting helpers ---------- */
@@ -153,7 +138,6 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
    Layout: header, drawer, footer, modal
    ========================================================================== */
 function renderLayout() {
-  document.body.insertAdjacentHTML("afterbegin", EMBLEM_DEFS);
   const page = currentPage();
   const isLoanPage = LOANS.some((l) => l.slug === page) || page === "loans";
   const cur = (p) => (page === p ? ' aria-current="page"' : "");
@@ -169,7 +153,7 @@ function renderLayout() {
   const header = `
   <header class="site-header" id="siteHeader">
     <div class="container">
-      ${brandLockup()}
+      ${brandLogo(60)}
       <ul class="nav" role="list">
         <li><a class="nav-link" href="index.html"${cur("index")}>Home</a></li>
         <li class="has-mega">
@@ -189,6 +173,14 @@ function renderLayout() {
         <li><a class="nav-link" href="about.html"${cur("about")}>About Us</a></li>
         <li><a class="nav-link" href="contact.html"${cur("contact")}>Contact</a></li>
       </ul>
+      <div class="theme">
+        <button class="theme-btn" type="button" aria-label="Change theme" aria-haspopup="true" aria-expanded="false">
+          ${icon("sun", "i-sun")}${icon("moon", "i-moon")}
+        </button>
+        <div class="theme-pop" role="menu" aria-label="Theme">
+          ${THEME_OPTIONS.map((o) => `<button class="theme-opt" type="button" role="menuitemradio" aria-checked="false" data-theme-set="${o.value}">${icon(o.icon)}${o.label}${icon("check", "tick")}</button>`).join("")}
+        </div>
+      </div>
       <div class="header-actions">
         <a class="header-phone" href="${telHref()}">${icon("phone")} ${CONFIG.phone}</a>
         <button class="btn btn-primary btn-sm" type="button" data-apply>Apply Now ${icon("arrow-right")}</button>
@@ -206,6 +198,10 @@ function renderLayout() {
     <a class="drawer-link" href="emi-calculator.html">EMI Calculator ${icon("arrow-right")}</a>
     <a class="drawer-link" href="about.html">About Us ${icon("arrow-right")}</a>
     <a class="drawer-link" href="contact.html">Contact ${icon("arrow-right")}</a>
+    <p class="drawer-label">Appearance</p>
+    <div class="theme-seg" role="radiogroup" aria-label="Theme">
+      ${THEME_OPTIONS.map((o) => `<button type="button" role="radio" aria-checked="false" data-theme-set="${o.value}">${icon(o.icon)}${o.label}</button>`).join("")}
+    </div>
     <button class="btn btn-primary btn-lg btn-block" type="button" data-apply>Apply Now ${icon("arrow-right")}</button>
     <a class="btn btn-ghost btn-block" href="${telHref()}">${icon("phone")} ${CONFIG.phone}</a>
   </nav>`;
@@ -216,8 +212,7 @@ function renderLayout() {
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          ${brandLockup()}
-          <p class="tagline">${CONFIG.tagline.map((t) => t.toUpperCase()).join(" <i></i> ")}</p>
+          ${brandLogo(170)}
           <p>Your trusted loan marketing partner. We connect you with leading banks &amp; NBFCs to get the right loan at the best rate — fast, transparent and free of charge.</p>
           <div class="socials">
             <a href="${s.facebook}" aria-label="Facebook">${icon("facebook")}</a>
@@ -324,6 +319,52 @@ function renderLayout() {
   document.body.insertAdjacentHTML("afterbegin", header);
   document.body.insertAdjacentHTML("beforeend", footer + modal);
   $(".form-note svg")?.setAttribute("style", "width:14px;height:14px;display:inline;vertical-align:-2px");
+}
+
+/* ==========================================================================
+   Theme manager — Light / Dark / System (follows the device)
+   The saved choice is applied before first paint by a tiny inline script in each page's <head>.
+   ========================================================================== */
+const THEME_KEY = "finzon-theme";
+const THEME_OPTIONS = [
+  { value: "light", label: "Light", icon: "sun" },
+  { value: "dark", label: "Dark", icon: "moon" },
+  { value: "system", label: "System", icon: "monitor" },
+];
+const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+const Theme = {
+  get() {
+    try { const t = localStorage.getItem(THEME_KEY); return t === "light" || t === "dark" ? t : "system"; }
+    catch { return "system"; }
+  },
+  effective(pref = Theme.get()) { return pref === "system" ? (darkQuery.matches ? "dark" : "light") : pref; },
+  set(pref) {
+    try { pref === "system" ? localStorage.removeItem(THEME_KEY) : localStorage.setItem(THEME_KEY, pref); } catch { /* storage blocked */ }
+    Theme.apply(pref);
+  },
+  apply(pref = Theme.get()) {
+    const root = document.documentElement;
+    if (pref === "system") delete root.dataset.theme; else root.dataset.theme = pref;
+    const eff = Theme.effective(pref);
+    $$(".theme-btn").forEach((b) => { b.dataset.effective = eff; b.setAttribute("aria-label", `Change theme (current: ${pref})`); });
+    $$("[data-theme-set]").forEach((b) => b.setAttribute("aria-checked", b.dataset.themeSet === pref));
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", eff === "dark" ? "#060b1f" : "#0a1230");
+  },
+};
+
+function initTheme() {
+  Theme.apply();
+  const wrap = $(".theme");
+  const btn = $(".theme-btn", wrap);
+  const setOpen = (open) => { wrap.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", open); };
+  btn.addEventListener("click", (e) => { e.stopPropagation(); setOpen(!wrap.classList.contains("is-open")); });
+  document.addEventListener("click", (e) => { if (!wrap.contains(e.target)) setOpen(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+  $$("[data-theme-set]").forEach((b) => b.addEventListener("click", () => { Theme.set(b.dataset.themeSet); setOpen(false); }));
+  darkQuery.addEventListener("change", () => Theme.get() === "system" && Theme.apply("system"));
+  // Keep multiple open tabs in sync
+  window.addEventListener("storage", (e) => e.key === THEME_KEY && Theme.apply());
 }
 
 /* ---------- Header behaviour ---------- */
@@ -746,6 +787,7 @@ function fillIcons() {
 document.documentElement.classList.remove("no-js");
 renderLayout();
 fillIcons();
+initTheme();
 initHeader();
 $$("[data-carousel]").forEach(initCarousel);
 $$("[data-emi]").forEach((el, i) => { el.dataset.uid = i; initEmi(el); });
